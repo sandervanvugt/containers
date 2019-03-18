@@ -8,7 +8,7 @@ ADD ./sander.repo /etc/yum.repos.d/
 RUN yum --assumeyes update && \
 yum --assumeyes install \
 nmap && \
-net-tools && \
+iproute && \
 bash && \
 yum clean all
 
