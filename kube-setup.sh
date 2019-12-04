@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# verified on Fedora 28 Server
+# verified on Fedora 29 Server
 
 
 # add vbox repo
@@ -26,11 +26,12 @@ dnf install VirtualBox-5.2 -y
 echo installing kubectl
 dnf install kubernetes-client -y
 echo downloading minikube, check version
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.33.1/minikube-linux-amd64
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
 chmod +x minikube
 cp minikube /usr/local/bin
 
-echo at this point, reboot your Fedora 28 Server. After reboot, manually run:
+echo at this point, reboot your Fedora Server. After reboot, manually run:
 echo vboxconfig
-echo minikube start
+echo VBoxManage modifyvm "minikube" --cpus 4 --memory 4096
+echo minikube start --memory=4096 --cpus=4
