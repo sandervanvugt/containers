@@ -1,0 +1,29 @@
+  - name: add epel repository
+    yum:
+      name: epel-release
+      state: latest
+  - name: install docker daemon
+    yum:
+      name: 
+      - docker
+      - python-pip
+      state: latest
+  - name: install docker pip module
+    pip:
+      name: docker
+  - name: start and enable docker daemon
+    service:
+      name: docker
+      enabled: yes
+      state: started
+  - name: create container
+    docker_container:
+      name: mynginx
+      image: nginx
+      state: started
+  - name: generate a list of running containers
+    command: docker ps
+    register: dockerps
+  - name: show list of running containers
+    debug:
+      var: dockerps.stdout

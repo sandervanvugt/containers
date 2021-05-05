@@ -1,0 +1,10 @@
+---
+- name: setup docker on CentOS 7 or Ubuntu
+  hosts: all
+  tasks:
+  - include_tasks: docker-centos.yaml
+    when: >
+      ansible_facts['distribution'] == 'CentOS' and 
+      ansible_facts['distribution_major_version'] == '7'
+  - include_tasks: docker-ubuntu.yaml
+    when: ansible_facts['distribution'] == 'Ubuntu'  

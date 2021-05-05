@@ -1,0 +1,15 @@
+- name: install docker container
+  hosts: all
+  tasks:
+  - name: create container
+    docker_container:
+      name: mynginx
+      image: nginx
+      state: started
+  - name: generate a list of running containers
+    command: docker ps
+    register: dockerps
+  - name: show list of running containers
+    debug:
+      var: dockerps.stdout
+
