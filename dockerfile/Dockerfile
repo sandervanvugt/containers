@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:centos7
 MAINTAINER Sander <mail@sandervanvugt.nl>
 
 # Add repo file
