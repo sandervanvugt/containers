@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('build'){
+            steps {
+                git branch: 'master',
+                    url: 'https://github.com/imigram/containers'
+                sh "docker build t alpmap alpmap"
+            }
+        }
+        stage('test'){
+            steps {
+                sh "docker images"
+            }
+        }
+        stage('release') {
+            steps {
+                sh "docker run alpmap"
+            }
+        }
+    }
+}
