@@ -1,4 +1,4 @@
-FROM centos:7
+FROM docker.io/redhat/ubi8
 MAINTAINER Sander <mail@sandervanvugt.nl>
 
 # Add repo file
