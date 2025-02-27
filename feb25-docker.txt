@@ -1,0 +1,46 @@
+    1  sudo apt install ubuntu-desktop
+    2  sudo systemctl get-default
+    3  sudo systemctl disable pd-mapper.service 
+    4  sudo systemctl disable systemd-networkd-wait-online
+    5  sudo apt update -y
+    6  ip a
+    7  ping nu.nl
+    8  sudo apt update
+    9  sudo apt upgrade
+   10  sudo dpkg --configure -a
+   11  sudo reboot
+   12  sudo -i
+   13  sudo poweroff
+   14  sudo apt install docker.io
+   15  docker run -d nginx
+   16  sudo usermod -aG docker student
+   17  exit
+   18  id
+   19  docker run -d nginx
+   20  docker ps
+   21  sudo apt install podman
+   22  podman run -d docker.io/library/nginx
+   23  systemctl status dockerd
+   24  systemctl status docker
+   25  docker ps
+   26  podman ps
+   27  docker run fedora
+   28  docker ps
+   29  docker ps -a
+   30  docker run -it fedora
+   31  docker ps
+   32  docker run -it --name hackit --privileged -v /:/host busybox chroot /host
+   33  sudo ls -l /root
+   34  sudo cat /root/hellowortel.txt
+   35  history
+   36  git clone https://github.com/sandervanvugt/containers
+   37  sudo apt install docker-compose
+   38  cd containers/
+   39  cd wordpress-mysql/
+   40  ls
+   41  vim docker-compose.yml 
+   42  docker compose up
+   43  docker-compose up
+   44  cd
+   45  ip a
+   46  history > /tmp/feb25-docker.txt

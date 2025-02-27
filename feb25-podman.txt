@@ -1,0 +1,135 @@
+    1  podman run -it docker.io/library/ubuntu
+    2  uname -r
+    3  sudo dnf -y git
+    4  sudo dnf install -y git
+    5  git clone https://github.com/sandervanvugt/containers
+    6  cd containers/
+    7  ls
+    8  ./countdown 12
+    9  vim /etc/containers/registries.conf
+   10  podman run nginx
+   11  podman run -d nginx
+   12  sudo find / -name "cea6f*"
+   13  podman ps -a
+   14  podman stop cea
+   15  podman ps
+   16  podman ps 
+   17  podman ps -a
+   18  podman start cea6
+   19  podman ps
+   20  podman inspect cea | less
+   21  podman images
+   22  podman image inspect c3d1 | less
+   23  podman stats
+   24  vim /etc/containers/registries.conf
+   25  history
+   26  podman run --help | less
+   27  podman run -d -p 8080:80 nginx
+   28  podman images
+   29  podman ps
+   30  curl localhost:8080
+   31  podman run -d -p 8080:80 nginx --memory="128m"
+   32  podman run -d -p 8081:80 nginx --memory="128m"
+   33  podman ps
+   34  podman ps -a
+   35  podman logs c24e
+   36  podman run -d -p 8081:80 --memory=128m nginx
+   37  podman ps
+   38  podman stats
+   39  podman ps
+   40  ss -tulpn | grep :8081
+   41  podman ps
+   42  podman exec -it modest_taussig bash
+   43  podman exec modest_taussig uname -r
+   44  podman search mariadb
+   45  podman run --name mydb -d registry.redhat.io/rhel9/mariadb-1011
+   46  podman login registry.redhat.io
+   47  podman run --name mydb -d registry.redhat.io/rhel9/mariadb-1011
+   48  podman ps
+   49  podman ps -a
+   50  podman logs mydb
+   51  podman run --name mydb -d --env MARIADB_ROOT_PASSWORD=password registry.redhat.io/rhel9/mariadb-1011
+   52  podman run mydb
+   53  podman rm mydb
+   54  podman run --name mydb -d --env MARIADB_ROOT_PASSWORD=password registry.redhat.io/rhel9/mariadb-1011
+   55  podman ps
+   56  podman ps -a
+   57  podman logs mydb
+   58  podman rm mydb
+   59  podman run --name mydb -d --env MYSQL_ROOT_PASSWORD=password registry.redhat.io/rhel9/mariadb-1011
+   60  podman ps -a
+   61  ls
+   62  history | grep git
+   63  cd dockerfile/
+   64  ls
+   65  vim Dockerfile 
+   66  podman build -t nmap .
+   67  podman images
+   68  podman run localhost/nmap
+   69  sudo podman run localhost/nmap
+   70  cat Dockerfile 
+   71  podman run -it localhost/nmap /bin/bash
+   72  cat Dockerfile 
+   73  vim Dockerfile 
+   74  podman build -t nmap .
+   75  podman run -it localhost/nmap /bin/bash
+   76  cd ..
+   77  ls
+   78  cd alpmap/
+   79  ls
+   80  vim Dockerfile 
+   81  podman build -t alpmap .
+   82  podman images
+   83  podman search ubi
+   84  cd ..
+   85  mkdir ubimin
+   86  cp alpmap/* ubimin/
+   87  cd ubimin/
+   88  ls
+   89  vim Dockerfile
+   90  podman build -t sleepmap .
+   91  podman image
+   92  podman images
+   93  podman run sleepmap:latest 
+   94  history
+   95  cd
+   96  podman run -d -p 5000:5000 --restart=always --name registry registry:latest
+   97  sudo systemctl list-unit-files podman*
+   98  sudo systemctl enable --now podman-restart
+   99  podman pull fedora
+  100  podman images
+  101  podman tag fedora:latest localhost:5000/fedora
+  102  podman images
+  103  podman push localhost:5000/myfedora --tls-verify=false
+  104  podman push localhost:5000/fedora --tls-verify=false
+  105  podman rmi fedora:latest 
+  106  podman exec -it registry sh
+  107  podman pull localhost:5000/fedora
+  108  podman pull localhost:5000/fedora --tls-verify=false
+  109  podman run -d --env MYSQL_ROOT_PASSWORD=password -v /home/student/mariadb:/var/lib/mysql:Z registry.redhat.io/rhel9/mariadb-1011
+  110  mkdir mariadb
+  111  podman run -d --env MYSQL_ROOT_PASSWORD=password -v /home/student/mariadb:/var/lib/mysql:Z registry.redhat.io/rhel9/mariadb-1011
+  112  podman ps
+  113  ls -l mariadb/
+  114  podman ps -a
+  115  podman inspect boring_lamarr
+  116  podman logs boring_lamarr
+  117  podman image inspect mariadb-1011:latest | less
+  118  ls -ld mariadb/
+  119  podman unshare ls -ld mariadb/
+  120  podman unshare chown 27:27 mariadb
+  121  podman unshare ls -ld mariadb/
+  122  podman run -d --env MYSQL_ROOT_PASSWORD=password -v /home/student/mariadb:/var/lib/mysql:Z registry.redhat.io/rhel9/mariadb-1011
+  123  podman ps
+  124  ls -l mariadb/
+  125  ls -ldZ mariadb/
+  126  ps Zaux | less
+  127  ps Zfaux | less
+  128  cd containers/
+  129  ls
+  130  cd wordpress-mysql/
+  131  ls
+  132  sudo dnf install -y podman-compose
+  133  sudo dnf search compose
+  134  podman-compose
+  135  history > /tmp/feb25-podman.txt
