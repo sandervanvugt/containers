@@ -1,0 +1,167 @@
+    1  history -w
+    2  cat /etc/os-release 
+    3  firefox &
+    4  podman run -it ubuntu
+    5  podman run -it nginx sh
+    6  podman ps -a
+    7  podman ps
+    8  sudo find  . -name "d337c0*"
+    9  git
+   10  git clone https://github.com/sandervanvugt/containers
+   11  cd containers/
+   12  ls
+   13  ./countdown 12
+   14  docker ps
+   15  podman search mariadb
+   16  podman run -d registry.redhat.io/rhel10/mariadb-1011
+   17  podman login registry.redhat.io
+   18  podman run -d registry.redhat.io/rhel10/mariadb-1011
+   19  podman login docker.io
+   20  podman search mariadb
+   21  alias docker=podman
+   22  docker ps
+   23  docker ps -a
+   24  podman run ubuntu
+   25  podman ps
+   26  podman ps -a
+   27  podman inspect ubuntu
+   28* podman image inspect ubuntu | les
+   29  podman run -it ubuntu
+   30  podman ps
+   31  podman attach b13f
+   32  podman ps -a
+   33  podman start d337
+   34  podman start -it d337
+   35  podman start 42f02
+   36  podman ps
+   37  docker attach b13
+   38  docker stop b13
+   39  podman ps -a
+   40  podman start b13
+   41  podman ps
+   42  podman attach b13
+   43  docker attach 42f
+   44  podman run -d nginx
+   45  podman ps
+   46  podman attach cff21
+   47  podman ps
+   48  podman start cff21
+   49  podman exec -it cff21 sh
+   50  podman ps
+   51  podman start --help | less
+   52  podman ps -a
+   53  podman start -a 424
+   54  podman start -a 42f
+   55  podman --help
+   56  podman run --help
+   57  ./countdown 12
+   58  podman ps -a
+   59  cd
+   60  find . -name "486f*"
+   61  sudo find . -name "486f*"
+   62  podman ps -a
+   63  podman rm thirsty_poincare 
+   64  sudo find . -name "486f*"
+   65  podman ps
+   66  podman inspect blissful_mcnulty 
+   67  podman inspect blissful_mcnulty | less
+   68  podman search mariadb
+   69  podman run -d registry.redhat.io/rhel10/mariadb-1011
+   70  podman ps -a
+   71  podman logs goofy_jones 
+   72  podman stats
+   73  podman run --name myweb -d -p 8080:80 docker.io/library/nginx
+   74  podman ps
+   75  curl localhost:8080
+   76  docker run --help | less
+   77  podman run -d -p 8081:80 docker.io/library/nginx --memory="128Mi"
+   78  docker ps
+   79  docker ps -a
+   80  podman run -d -p 8081:80 --memory=128Mi docker.io/library/nginx 
+   81  podman run -d -p 8081:80 --memory=128m docker.io/library/nginx 
+   82  podman stats
+   83  docker images
+   84  podman run -d --name=mydb registry.redhat.io/rhel10/mariadb-1011
+   85  podman ps -a
+   86  podman run -d --name=mydb --env=MYSQL_ROOT_PASSWORD=password registry.redhat.io/rhel10/mariadb-1011
+   87  podman rm mydb 
+   88  podman run -d --name=mydb --env=MYSQL_ROOT_PASSWORD=password registry.redhat.io/rhel10/mariadb-1011
+   89  podman ps
+   90  podman images
+   91  podman tag a5cd localhost:5000/myimage:1.1
+   92  podman images
+   93  podman tag a5cd docker.io/sandervanvugt/dumbimage
+   94  cd containers/
+   95  history | grep git
+   96  ls
+   97  cd dockerfile/
+   98  ls
+   99  vim Dockerfile 
+  100  docker build -t mynmap .
+  101  podman images
+  102  podman run localhost/mynmap
+  103  cd ..
+  104  ls
+  105  cd alpmap/
+  106  ls
+  107  vim Dockerfile 
+  108  ls ..
+  109  vim Dockerfile 
+  110  ls
+  111  cp ../countdown .
+  112  rm sander.repo 
+  113  podman build -t countdown .
+  114  vim Dockerfile 
+  115  ls
+  116  vim Dockerfile 
+  117  podman build -t countdown .
+  118  podman images
+  119  podman run localhost/countdown:latest 
+  120  podman run -it localhost/countdown:latest sh
+  121  podman run -it localhost/countdown:latest 2
+  122  podman image inspect nginx
+  123  podman image inspect nginx | less
+  124  podman image inspect mariadb-1011:latest | less
+  125  podman run -it localhost/countdown:latest 
+  126  cd
+  127  docker run -d --name mynginx docker.io/library/nginx
+  128  podman ps
+  129  podman exec -it mynginx bash
+  130  podman diff mynginx
+  131  podman commit newnginx
+  132  podman commit --help | less
+  133  podman commit mynginx
+  134  podman images
+  135  podman tag localhost:5000/mynewnginx ea1
+  136  podman tag ea1 localhost:5000/mynewnginx 
+  137  podman images
+  138  podman run -d -p 5000:5000 --restart=always --name registry docker.io/library/registry
+  139  systemctl list-unit-files podman*
+  140  sudo systemctl enable --now podman-restart.service
+  141  sudo firewall-cmd --add-port 5000/tcp --permanent
+  142  sudo firewall-cmd --add-port 5000/tcp
+  143  podman images
+  144  podman push localhost:5000/mynewnginx --tls-verify=false
+  145  podman rmi localhost:5000/mynewnginx:latest 
+  146  podman exec -it registry bash
+  147  podman exec -it registry sh
+  148  docker run -d localhost:5000/mynewnginx
+  149  docker run -d localhost:5000/mynewnginx --tls-verify=false
+  150  docker pull localhost:5000/mynewnginx --tls-verify=false
+  151  podman rmi localhost:5000/mynewnginx:latest 
+  152  docker run -d --tls-verify=false localhost:5000/mynewnginx 
+  153  podman ps
+  154  podman exec -it exciting_dirac ls -l /tmp
+  155  sudo -i
+  156  mkdir mydb
+  157  ls -ld mydb/
+  158  podman unshare chown 27:27 mydb
+  159  ls -ld mydb/
+  160  podman unshare ls -ld mydb
+  161  podman images
+  162  podman run -d -v /home/student/mydb:/var/lib/mysql:Z --env MYSQL_ROOT_PASSWORD=password registry.redhat.io/rhel10/mariadb-1011
+  163  podman ps
+  164  ls -l mydb/
+  165  history
+  166  ip a
+  167  history > /tmp/may25.txt
